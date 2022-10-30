@@ -32,7 +32,7 @@ export default function Login() {
     }
 
     const goToMain = () => {
-        navigate('/');
+        navigate('/home');
     };
 
     const goToSignUp = () => {

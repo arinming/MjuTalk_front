@@ -10,9 +10,6 @@ import Navbar from '../../components/Navbar/Navbar';
 export default function SignIn() {
   return (
     <div>
-      <Navbar
-      nav1="기숙사"
-      nav2="버스" />
       <Login />
     </div>
   )

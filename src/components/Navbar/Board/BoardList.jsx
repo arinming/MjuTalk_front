@@ -1,13 +1,12 @@
 import React from 'react'
-import Navbar from '../../components/Navbar/Navbar'
 import styled from "styled-components"
 import BoardModal from "react-modal"
-import { BoardProvider } from "../../components/Navbar/Board/BoardContext"
-import BoardTemplate from '../../components/Navbar/Board/BoardTemplate'
-import BoardHead from '../../components/Navbar/Board/BoardHead'
-import CardList from '../../components/Navbar/Board/CardList'
-import BoardCreate from '../../components/Navbar/Board/BoardCreate'
-import { Close } from "../../image/index.jsx"
+import { BoardProvider } from "./BoardContext"
+import BoardTemplate from './BoardTemplate'
+import BoardHead from './BoardHead'
+import CardList from './CardList'
+import BoardCreate from './BoardCreate'
+import { Close } from "../../../image/index.jsx"
 
 const ModalContainer = styled.div`
   position: absolute;
@@ -53,7 +52,7 @@ const BoardListWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   .boardList-header {
-    color: black;
+    color: midnightblue;
     font-weight: bold;
     font-size: 2.5rem;
     margin-top: 50px;
@@ -67,28 +66,53 @@ const BoardListWrapper = styled.div`
   }
 `
 
-const index = ({ isModal, setModal }) => {
+const BoardList = ({ isModal, setModal }) => {
   return (
-    <div>
-      <h1>
-        <Navbar
-          nav1="기숙사"
-          nav2="버스" />
-      </h1>
-      <div>
+    <BoardModal>
+      isOpen={isModal}
+      onRequestClose={() => setModal(false)}
+      ariaHideApp={false}
+      style={{
+        overlay: {
+          position: "absolute",
+          top: "0px",
+          left: "0px",
+          height: "100%",
+          width: "90%",
+        },
+
+        content: {
+          position: "fixed",
+          top: "0px",
+          bottom: "0px",
+          left: "-200px",
+          right: "0px",
+          margin: "auto",
+          width: "1610px",
+          height: "850px",
+          borderRadius: "30px",
+        },
+      }}
+
+      <ModalContainer>
         <ModalHead>
-          <Closebtn src={Close} onClick={() => setModal(false)} />
         </ModalHead>
         <ModalBody>
           <BoardListWrapper>
-            <div className="boardList-header">기숙사 게시물 📝</div>
+            <div className="boardList-header">전체 게시물 📝</div>
             <div className="boardList-body" />
+            <BoardProvider>
+              <BoardTemplate>
+                <BoardHead />
+                <CardList />
+                <BoardCreate />
+              </BoardTemplate>
+            </BoardProvider>
           </BoardListWrapper>
         </ModalBody>
-
-      </div>
-    </div>
+      </ModalContainer>
+    </BoardModal>
   )
 }
 
-export default index
+export default BoardList

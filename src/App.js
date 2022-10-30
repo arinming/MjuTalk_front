@@ -4,8 +4,8 @@ import { RecoilRoot } from 'recoil';
 import SignIn from './pages/SignIn';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
-
-
+import Dorm from './pages/Dorm'
+import Bus from './pages/Bus'
 
 function App() {
   return (
@@ -13,9 +13,11 @@ function App() {
         <RecoilRoot>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/sign-in" element={<SignIn />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<SignIn />} />
               <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/dorm" element={<Dorm />} />
+              <Route path="/bus" element={<Bus />} />
             </Routes>
           </BrowserRouter>
         </RecoilRoot>

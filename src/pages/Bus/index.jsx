@@ -8,6 +8,9 @@ import BoardHead from '../../components/Navbar/Board/BoardHead'
 import CardList from '../../components/Navbar/Board/CardList'
 import BoardCreate from '../../components/Navbar/Board/BoardCreate'
 import { Close } from "../../image/index.jsx"
+import Card from '../../components/Navbar/Board/Card'
+import BoardList from '../../components/Navbar/Board/BoardList'
+
 
 const ModalContainer = styled.div`
   position: absolute;
@@ -68,27 +71,48 @@ const BoardListWrapper = styled.div`
 `
 
 const index = ({ isModal, setModal }) => {
-  return (
-    <div>
-      <h1>
-        <Navbar
-          nav1="기숙사"
-          nav2="버스" />
-      </h1>
-      <div>
-        <ModalHead>
-          <Closebtn src={Close} onClick={() => setModal(false)} />
-        </ModalHead>
-        <ModalBody>
-          <BoardListWrapper>
-            <div className="boardList-header">기숙사 게시물 📝</div>
-            <div className="boardList-body" />
-          </BoardListWrapper>
-        </ModalBody>
+    return (
+        <div>
+            <h1>
+                <Navbar
+                    nav1="기숙사"
+                    nav2="버스" />
+            </h1>
+            <div>
+                <ModalHead>
+                    <Closebtn src={Close} onClick={() => setModal(false)} />
+                </ModalHead>
+                <ModalBody>
+                    <BoardListWrapper>
+                        <div className="boardList-header">버스 게시물 📝</div>
+                        <div className="boardList-body" />
+                    </BoardListWrapper>
+                </ModalBody>
+            </div>
+            <div>
+                <BoardTemplate>
+                    <Card
+                        address="bus"
+                        board_id={0}
+                        img_url=""
+                        title="첫 번째 게시물"
+                        content={"테스트용 게시물입니다."}
+                        username="김아린"
+                        date={20221029}
+                    />
+                    <Card
+                        board_id={1}
+                        img_url=""
+                        title="두 번째 게시물"
+                        content={"테스트용 게시물입니다."}
+                        username="김아린"
+                        date={20221030}
+                    />
+                </BoardTemplate>
+            </div>
 
-      </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default index

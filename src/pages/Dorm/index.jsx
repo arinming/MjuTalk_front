@@ -8,6 +8,7 @@ import BoardHead from '../../components/Navbar/Board/BoardHead'
 import CardList from '../../components/Navbar/Board/CardList'
 import BoardCreate from '../../components/Navbar/Board/BoardCreate'
 import { Close } from "../../image/index.jsx"
+import Card from '../../components/Navbar/Board/Card'
 
 const ModalContainer = styled.div`
   position: absolute;
@@ -85,9 +86,31 @@ const index = ({ isModal, setModal }) => {
             <div className="boardList-body" />
           </BoardListWrapper>
         </ModalBody>
-
       </div>
+      <div>
+                <BoardTemplate>
+                    <Card
+                        address="dorm"
+                        board_id={0}
+                        img_url=""
+                        title="첫 번째 게시물"
+                        content={"테스트용 게시물입니다."}
+                        username="김아린"
+                        date={20221029}
+                    />
+                    <Card
+                        address="dorm"
+                        board_id={1}
+                        img_url=""
+                        title="두 번째 게시물"
+                        content={"테스트용 게시물입니다."}
+                        username="김아린"
+                        date={20221030}
+                    />
+                </BoardTemplate>
+            </div>
     </div>
+    
   )
 }
 

@@ -60,6 +60,7 @@ const BoardListWrapper = styled.div`
     font-weight: bold;
     font-size: 2.5rem;
     margin-top: 50px;
+    display: center;
   }
   .boardList-body {
     margin-top: 150px;
@@ -101,6 +102,7 @@ const index = ({ isModal, setModal }) => {
                         date={20221029}
                     />
                     <Card
+                        address="bus"
                         board_id={1}
                         img_url=""
                         title="두 번째 게시물"
